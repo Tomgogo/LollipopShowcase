@@ -30,6 +30,9 @@ import com.mikepenz.lollipopshowcase.itemanimator.CustomItemAnimator;
 import com.mikepenz.lollipopshowcase.util.UploadHelper;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SwitchDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
@@ -72,13 +75,17 @@ public class MainActivity extends AppCompatActivity {
                 .addDrawerItems(
                         new SwitchDrawerItem().withOnCheckedChangeListener(new OnCheckedChangeListener() {
                             @Override
-                            public void onCheckedChanged(IDrawerItem drawerItem, CompoundButton compoundButton, boolean b) {
+                            public void onCheckedChanged(IDrawerItem drawerItem, CompoundButton
+                                    compoundButton, boolean b) {
                                 SharedPreferences.Editor editor = pref.edit();
                                 editor.putBoolean("autouploadenabled", b);
                                 editor.apply();
                             }
-                        }).withName(R.string.drawer_switch).withChecked(pref.getBoolean("autouploadenabled", false))
-                ).addStickyDrawerItems(
+                        }).withName(R.string.drawer_switch).withChecked(pref.getBoolean
+                                ("autouploadenabled", false))
+                ).addDrawerItems(new DividerDrawerItem()).addDrawerItems(new PrimaryDrawerItem().withBadge("haha")).addDrawerItems(new DividerDrawerItem()).addDrawerItems(new PrimaryDrawerItem().withName("so cool"))
+                .addStickyDrawerItems(new ProfileDrawerItem().withEmail("haha@jiaju.com").withIdentifier(6))
+                .addStickyDrawerItems(
                         new SecondaryDrawerItem()
                                 .withName(R.string.drawer_opensource)
                                 .withIdentifier(DRAWER_ITEM_OPEN_SOURCE)

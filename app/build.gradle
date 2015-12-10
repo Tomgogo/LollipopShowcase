@@ -69,4 +69,5 @@ dependencies {
     }
 
     compile 'com.facebook.rebound:rebound:0.3.6'
+    compile 'com.android.support:appcompat-v7:22.0.0'
 }
